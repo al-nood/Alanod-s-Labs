@@ -10,6 +10,6 @@ public class Shift_right {
     public static void main(String[] args){
         Shift_right sr=new Shift_right();
         int[]num={2,3,5,6,7};
-        sr.shiftRight_Delete(num,2);
+        sr.shiftRight_Delete(num,3);
     }
 }

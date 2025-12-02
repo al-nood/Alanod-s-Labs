@@ -3,11 +3,22 @@ package Arrays;
 import java.util.Scanner;
 
 public class Arrayss {
-Scanner scanner=new Scanner(System.in);
+  Scanner scanner=new Scanner(System.in);
+
     public void input(int[]a){
-        System.out.println("enter"+a.length+"numbers");
+        System.out.println("enter "+a.length+" numbers");
         for(int i=0;i<a.length;i++)
             a[i]=scanner.nextInt();
+    }
+    public void Traversal(int[]a){
+        System.out.println("the element :");
+        for(int i=0;i< a.length;i++)
+         System.out.println("index["+i+"]"+a[i]);
+    }
+    public void Reverse_traversal(int[]a){
+        System.out.println("the elements from the end are:");
+        for(int i=a.length-1;i>=0;i--)
+            System.out.println("index["+i+"]"+a[i]);
     }
     public void update(int[]a,int index,int nvalue){
         if(index<0||index>=a.length)
@@ -28,6 +39,10 @@ Scanner scanner=new Scanner(System.in);
         a[a.length-1]=Integer.MIN_VALUE;
     }
     public int LinearSearch(int[]a,int svalue){
-        return 0;
+         for(int i=0;i<a.length-1;i++)
+             if(svalue==a[i])
+                 System.out.println("found in index "+i);
+
+        return -1;
     }
 }

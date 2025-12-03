@@ -8,7 +8,7 @@ public class SinglyLinkedList <E>{
     public int size(){
         return size;
     }
-    public boolean isEmpty(){
+    public boolean is_Empty(){
         return size()==0;
     }
 

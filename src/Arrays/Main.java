@@ -14,6 +14,11 @@ public class Main {
         arr.delete(numbers,1);
         arr.SHIFTLEFTDELETE(numbers,2);
         arr.Traversal(numbers);
-        arr.LinearSearch(numbers,5);
+        int result=arr.LinearSearch(numbers,5);
+        if(result!=-1)
+            System.out.println("found in index "+result);
+        int result2=arr.BinarySearch(numbers,5);
+        if(result!=-1)
+            System.out.println("found in index "+result);
     }
 }

@@ -72,6 +72,26 @@ public class SinglyLinkedList <E>{
         }
         System.out.println("null \n");
     }
+    public void add_position(E data,int position){
+        if (position<=0 || position>size+1){
+            throw new IllegalArgumentException("invalid position");
+        }
+        if (position==1){
+            addFrist(data);
+        return;}
+        else {
+            Node<E> newnode=new Node<>(data,null);
+            Node<E> temp=head;
+            int count=1;
+            while (count<position-1){
+                temp=temp.getNext();
+                count++;
+            }
+            newnode.setNext(temp.getNext());
+            temp.setNext(newnode);
+        }
+
+    }
 
     class Node<E> {
         private E data;

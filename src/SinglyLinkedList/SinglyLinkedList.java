@@ -1,101 +1,138 @@
 package SinglyLinkedList;
 
-public class SinglyLinkedList <E>{
-    private Node<E> head=null;
-    private Node<E> tail=null;
-    private int size=0;
+public class SinglyLinkedList<E> {
+    private Node<E> head = null;
+    private Node<E> tail = null;
+    private int size = 0;
 
-    public int size(){
+
+    public int size() {
         return size;
     }
-    public boolean is_Empty(){
-        return size()==0;
+
+    public boolean isEmpty() {
+        return size() == 0;
     }
-    public void addFrist(E data){
-        Node<E> newnode=new Node(data ,head);
-        head=newnode;
-        if(is_Empty())
-            tail=head;
+
+
+    public void addFirst(E data) {
+        Node<E> newNode = new Node(data, head);
+        head = newNode;
+        if (isEmpty())
+            tail = head;
         size++;
+
     }
-    public E getFrist(){
-        if(is_Empty())return null;
+
+    public E getFirst() {
+        if (isEmpty()) return null;
         return head.getData();
     }
-    public E removFrist(){
-        if (is_Empty())return null;
-        E delete=head.getData();
-        head=head.getNext();
+
+    public E removeFirst() {
+        if (isEmpty()) return null;
+        E delete = head.getData();
+        head = head.getNext();
         size--;
-        if(is_Empty())
-            tail=head;
+        if (isEmpty())
+            tail = head;
+
         return delete;
     }
 
-    public void addLast(E data){
-        Node newnode=new Node(data,null);
-        if(is_Empty())
-            head=newnode;
-        else{
+    public void addLast(E data) {
+        Node newnode = new Node(data, null);
+        if (isEmpty()) {
+            head = newnode;
+        } else {
             tail.setNext(newnode);
         }
-        tail=newnode;
+        tail = newnode;
         size++;
+
     }
-    public E getLast(){
-        if(is_Empty())return null;
-        return tail.getData();
-    }
-    public E removeLast(){
-        if(is_Empty())return null;
-        E delete=tail.getData();
-        if(head==tail){
-            head=null;
-            tail=null;
+
+    public E getLast() {
+        if (isEmpty()) {
+            return null;
         }
-        else {
-            Node<E> temp = head;//pointer it's copy from head to start from it
+        return tail.getData();
+
+
+    }
+
+    public E removeLast() {
+        if (isEmpty()) return null;
+        E delete = tail.getData();
+        if (head == tail) {
+            head = null;
+            tail = null;
+        } else {
+            Node<E> temp = head;
             while (temp.getNext() != tail) {
                 temp = temp.getNext();
             }
-            temp.setNext(null);
-            tail=temp;}
-            size--;
-            return delete;
 
+            temp.setNext(null);
+            tail = temp;
+        }
+        size--;
+        return delete;
     }
-    public void display(){
-        Node<E> temp=head;
-        while(temp!=null) {
-            System.out.print(temp.getData() + "---->");
+
+    public void display() {
+        Node<E> temp = head;
+        while (temp != null) {
+            System.out.print(temp.getData() + "----->");
             temp = temp.getNext();
         }
         System.out.println("null \n");
+
     }
-    public void add_position(E data,int position){
-        if (position<=0 || position>size+1){
-            throw new IllegalArgumentException("invalid position");
+    public void display2() {
+        Node<E> temp = head;
+        while (temp != null) {
+            System.out.println(temp.getData() );
+            temp = temp.getNext();
         }
-        if (position==1){
-            addFrist(data);
-        return;}
+
+    }
+
+    public void addAtposition(E data,int position) {
+        if (position <= 0 || position > size + 1) {
+            throw new IllegalArgumentException("Invalid Position");
+        }
+        if (position == 1){
+            addFirst(data);
+            return;}
         else {
-            Node<E> newnode=new Node<>(data,null);
+            Node<E> newNode=new Node(data,null);
             Node<E> temp=head;
             int count=1;
             while (count<position-1){
                 temp=temp.getNext();
                 count++;
             }
-            newnode.setNext(temp.getNext());
-            temp.setNext(newnode);
+            newNode.setNext(temp.getNext());
+            temp.setNext(newNode);
+            if(newNode.getNext()==null){
+                tail=newNode;
+            }
         }
+
+
 
     }
 
     class Node<E> {
         private E data;
         private Node<E> next;
+
+        public Node(E data, Node<E> next) {
+            this.data = data;
+            this.next = next;
+        }
+
 
         public E getData() {
             return data;
@@ -105,11 +142,6 @@ public class SinglyLinkedList <E>{
             this.data = data;
         }
 
-        public Node(E data, Node<E> next) {
-            this.data = data;
-            this.next = next;
-        }
-
         public Node<E> getNext() {
             return next;
         }
@@ -117,7 +149,6 @@ public class SinglyLinkedList <E>{
         public void setNext(Node<E> next) {
             this.next = next;
         }
-
-
     }
+
 }

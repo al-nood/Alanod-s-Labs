@@ -6,8 +6,8 @@ public class Main {
         list.addFirst("Alanod");
         list.addLast("Mogahed");
         list.addLast("Aljamali");
-        //list.removefirst();
-        //list.removelast();
+        list.removefirst();
+        list.removeLast();
         list.display();
 
     }

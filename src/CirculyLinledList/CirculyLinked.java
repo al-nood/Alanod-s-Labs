@@ -48,18 +48,18 @@ public class CirculyLinked<E> {
         size--;
         return delete;
     }
-    public E removelast(){
-        if(isEmpty()) return null;
-        E delete =tail.getData();
+    public E removeLast(){
+        if (isEmpty())return null;
+        E delete=tail.getData();
         if(tail==tail.getNext()){
             tail=null;
         }
-        else{
-           Node<E> temp=tail.getNext();
-           while (temp.getData()!=tail){
-               temp=temp.getNext();
-           }temp.setNext(tail.getNext());
-           tail=temp;
+        else {
+            Node<E>temp=tail.getNext();
+            while (temp.getNext()!=tail){
+                temp=temp.getNext();
+            }temp.setNext(tail.getNext());
+            tail=temp;
         }
         size--;
         return delete;
